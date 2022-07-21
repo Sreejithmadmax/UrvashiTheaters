@@ -630,17 +630,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "try":            
         btn = [[
-            InlineKeyboardButton('🔍 ᴄʜᴇᴄᴋ ɢᴏᴏɢʟᴇ ꜰɪʀꜱᴛ 🔍', url=f'https://google.com/search?q=')
+            InlineKeyboardButton('🗣️ ʀᴇQᴜᴇꜱᴛ ʜᴇʀᴇ 🗣️', url='https://t.me/UrvashiTheaters_Requests')
         ],[
             InlineKeyboardButton('ᴍᴀʟ', callback_data='mal'),
             InlineKeyboardButton('ᴛᴀᴍ', callback_data='tml'),
             InlineKeyboardButton('ᴇɴɢ', callback_data='eng'),
             InlineKeyboardButton('ʜɴᴅ', callback_data='hnd')
         ],[
-            InlineKeyboardButton('🗣️ ʀᴇQᴜᴇꜱᴛ ʜᴇʀᴇ 🗣️', url='https://t.me/UrvashiTheaters_Requests') 
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='true') 
         ]]
         await query.message.edit_text(text=script.SPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))
 
+    elif query.data == "true":
+        btn = [[
+            InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')
+            ],[   
+            InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?=q')
+        ]]
+        await query.message.edit_text(ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))
+         
     elif query.data == "stats":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
